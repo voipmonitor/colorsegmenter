@@ -1,0 +1,29 @@
+You need convert program installed (from imagemagick). 
+
+Compile with: 
+
+g++ -O2 -o segm segm.cc segm_main.cc -lm
+
+
+use: 
+
+./segm <input filename> [option]
+
+input filename - any picture supported by convert (imagemagick). 
+option (not mandatory): 
+	u - undersegmentation (default option if not specified)
+	o - oversegmentation (more precise - more colors)
+	q - quantization (best quality but more color segments)
+
+as a result, result.ppm and result.pgm is produces (you can convert it by 
+convert result.ppm result.jpg). result.pgm is contour, result.ppm is 
+color segmented picture. 
+
+changelog: 
+
+bugs fixed: segm.cc line 951: out of bounds references
+tweaks: include headers modified to support nowdays c++ compilers and some casts. 
+
+tested and compiled on: debian etch 
+
+enjoy this master piece algorithm!

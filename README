@@ -1,0 +1,80 @@
+Color Image Segmentation
+This is the implementation of the algorithm described in 
+D. Comaniciu, P. Meer, 
+Robust Analysis of Feature Spaces: Color Image Segmentation,
+http://www.caip.rutgers.edu/~meer/RIUL/PAPERS/feature.ps.gz
+appeared in Proceedings of CVPR'97, San Juan, Puerto Rico.
+===========================================================================
+=====      Module: README
+===== -------------------------------------------------------------- ======
+=====      Version 01   Date: 04/22/97
+===== -------------------------------------------------------------- ======
+===========================================================================
+=====      Written by Dorin Comaniciu
+=====      e-mail:  comanici@caip.rutgers.edu
+===========================================================================
+Permission to use, copy, or modify this software and its documentation
+for educational and research purposes only is hereby granted without
+fee, provided that this copyright notice appear on all copies and
+related documentation.  For any other uses of this software, in original
+or modified form, including but not limited to distribution in whole
+or in part, specific prior permission must be obtained from
+the author(s).
+
+THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+IN NO EVENT SHALL RUTGERS UNIVERSITY BE LIABLE FOR ANY SPECIAL,
+INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY
+DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY
+THEORY OF LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE
+OR PERFORMANCE OF THIS SOFTWARE.
+===========================================================================
+
+Source is available from
+  http://www.caip.rutgers.edu/~meer/RIUL/uploads.html
+
+This is an alpha version of the code.
+The code works with ppm images only.
+
+The package contains the following files:
+
+  README       - this file
+  segm_main.cc - input/output operations
+  segm.cc      - the segmenter
+  segm.hh      - the header file
+
+To compile use:
+  g++ -O2 -o segm segm.cc segm_main.cc -lm
+
+I tested the code on:
+  IRIX Release 5.3 IP22 (Silicon Graphics)
+  SunOS 5.5 Generic sun4u
+  Digital UNIX V4.0 (Rev. 386)
+
+In addition, the code can be compiled with the CC compiler on 
+  SunOS 5.5 Generic sun4u
+using:
+  CC  -O2 -o segm segm.cc segm_main.cc -lm
+
+Usage: 
+  segm image_name.ppm
+
+This version of the code offers three segmentation classes, called
+  Undersegmentation - lowest resolution       (u)
+  Oversegmentation  - intermediate resolution (o)
+  Quantization      - highest resolution      (q)
+
+In addition, the program detects the most important color inside 
+one or more given windows (w).
+
+The output consists of 2 images: 
+  result.ppm - the segmented version of the input image;
+  result.pgm - the associated contour image.
+
+The output is displayed using the xv.
+
+Please send questions or/and comments to
+  comanici@caip.rutgers.edu
